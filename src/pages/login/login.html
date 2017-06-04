@@ -1,0 +1,34 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="myForm" (ngSubmit)="saveData()" novalidate>
+    <ion-list> 
+
+      <ion-item>
+        <ion-label stacked>E-mail:</ion-label>
+        <ion-input formControlName="email" type="text" placeholder="email"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="myForm.get('email').errors && myForm.get('email').dirty">
+        <p color="danger" ion-text *ngIf="myForm.get('email').hasError('required')">Este campo es requerido</p>
+        <p color="danger" ion-text *ngIf="myForm.get('email').hasError('email')">Debe ser un email valido</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Password:</ion-label>
+        <ion-input formControlName="password" type="password" placeholder="password"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="myForm.get('password').errors && myForm.get('password').dirty">
+        <p color="danger" ion-text *ngIf="myForm.get('password').hasError('required')">Este campo es requerido</p>
+      </ion-item>
+    </ion-list>
+    <div padding>
+      <button ion-button block type="submit" [disabled]="myForm.invalid">Guardar</button>
+    </div>
+  </form>
+</ion-content>

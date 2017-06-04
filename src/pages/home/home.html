@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Prueba Ionic
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button full color="secondary" (click)="onLogout()">
+        Logout
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h1>Bienvenido {{loginDto.firstName}}  {{loginDto.lastName}}!!!</h1>
+
+  tu email es: {{loginDto.email}}
+
+</ion-content>
